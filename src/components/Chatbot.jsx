@@ -3,7 +3,7 @@ import ChatHeader from './ChatHeader';
 import ChatBody from './ChatBody';
 
 const Chatbot = () => {
-  const [isInputFocused, setIsInputFocused] = useState(false); // shared state
+  const [isInputFocused, setIsInputFocused] = useState(false);
 
   return (
     <div className="fixed bottom-4 right-4 z-50">
