@@ -11,7 +11,7 @@ function App() {
   };
 
   return (
-    <div className="relative min-h-screen bg-gray-100">
+    <div className="relative min-h-screen bg-white">
       <div id="chatbot-widget">
         <button
           onClick={handleChatbotClick}
