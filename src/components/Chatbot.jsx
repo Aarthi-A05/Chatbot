@@ -6,8 +6,13 @@ const Chatbot = () => {
   const [isInputFocused, setIsInputFocused] = useState(false);
   const [userDetails, setUserDetails] = useState({});
 
+  const getQueryParams = () => {
+    const queryString = window.location.href.split('?')[1] || '';
+    return new URLSearchParams(queryString);
+  };
+
   useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
+    const params = getQueryParams();
     const user = {
       api_id: params.get("api_id"),
       user_id: params.get("user_id"),
@@ -17,7 +22,7 @@ const Chatbot = () => {
     };
     console.log("✅ Chatbot User Info:", user);
     setUserDetails(user);
-  }, [window.location.search]); // ✅ Re-run effect when query string changes
+  }, []);
 
   return (
     <div className="fixed bottom-4 right-4 z-50">
