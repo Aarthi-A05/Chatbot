@@ -1,13 +1,18 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,useLocation } from "react-router-dom";
 import { MessageCircle } from "lucide-react";
 import "./widget.css";
 
 function App() {
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleChatbotClick = () => {
-    navigate("/chatbot");
+    const currentParams = new URLSearchParams(location.search);
+    navigate({
+      pathname: "/chatbot",
+      search: `?${currentParams.toString()}`,
+    });
   };
 
   return (
