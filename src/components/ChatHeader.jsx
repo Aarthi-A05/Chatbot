@@ -5,7 +5,10 @@ import { useNavigate } from 'react-router-dom';
 const ChatHeader = ({ isInputFocused }) => {
   const navigate = useNavigate();
   const handleBackClick = () => {
-    navigate('/');
+    navigate({
+      pathname: "/",
+      search: `?${currentParams.toString()}`
+    });
   };
 
   return (
