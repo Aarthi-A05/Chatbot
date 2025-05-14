@@ -20,6 +20,8 @@ const Chatbot = () => {
       email: params.get("email"),
       created_at: params.get("created_at"),
     };
+    const parameters = new URLSearchParams(window.location.search);
+    console.log("url:", parameters);
     console.log("✅ Chatbot User Info:", user);
     setUserDetails(user);
   }, []);
