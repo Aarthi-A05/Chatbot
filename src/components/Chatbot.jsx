@@ -8,6 +8,7 @@ const Chatbot = () => {
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
+    console.log("Params: ", params);
     const user = {
       api_id: params.get("api_id"),
       user_id: params.get("user_id"),
