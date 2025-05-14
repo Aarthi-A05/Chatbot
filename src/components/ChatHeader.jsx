@@ -1,9 +1,11 @@
 import React from 'react';
 import { ChevronLeft, Menu, BotMessageSquare } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const ChatHeader = ({ isInputFocused }) => {
   const navigate = useNavigate();
+  const location = useLocation(); 
+  const currentParams = new URLSearchParams(location.search); 
   const handleBackClick = () => {
     navigate({
       pathname: "/",
