@@ -1,15 +1,16 @@
 import React from 'react';
 import { ChevronLeft, Menu, BotMessageSquare } from 'lucide-react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom'; // ✅ make sure you import useLocation
 
 const ChatHeader = ({ isInputFocused }) => {
   const navigate = useNavigate();
-  const location = useLocation(); 
-  const currentParams = new URLSearchParams(location.search); 
+  const location = useLocation(); // ✅ gets current location object
+  const currentParams = new URLSearchParams(location.search); // ✅ declare this before using it
+
   const handleBackClick = () => {
     navigate({
       pathname: "/",
-      search: `?${currentParams.toString()}`
+      search: `?${currentParams.toString()}`, // ✅ now this won't throw an error
     });
   };
 
@@ -22,9 +23,9 @@ const ChatHeader = ({ isInputFocused }) => {
       </button>
 
       {isInputFocused && (
-        <div className="absolute top-6 left-1/2 transform -translate-x-1/2">
-          <BotMessageSquare className="w-8 h-8 text-white text-center w-full" />
-          <p className="text-xl font-semibold text-white text-center w-full">Chatbot</p>
+        <div className="absolute top-6 left-1/2 transform -translate-x-1/2 text-center">
+          <BotMessageSquare className="w-8 h-8 mx-auto" />
+          <p className="text-xl font-semibold">Chatbot</p>
         </div>
       )}
 
