@@ -7,28 +7,17 @@ const Chatbot = () => {
   const [userDetails, setUserDetails] = useState({});
 
   useEffect(() => {
-  const params = new URLSearchParams(window.location.search);
-  const user = {
-    api_id: params.get("api_id"),
-    user_id: params.get("user_id"),
-    name: params.get("name"),
-    email: params.get("email"),
-    created_at: params.get("created_at"),
-  };
-
-  // If values exist in URL, store in localStorage
-  if (user.api_id && user.user_id) {
-    localStorage.setItem("userDetails", JSON.stringify(user));
+    const params = new URLSearchParams(window.location.search);
+    const user = {
+      api_id: params.get("api_id"),
+      user_id: params.get("user_id"),
+      name: params.get("name"),
+      email: params.get("email"),
+      created_at: params.get("created_at"),
+    };
+    console.log("✅ Chatbot User Info:", user);
     setUserDetails(user);
-  } else {
-    // Fallback to previously saved details
-    const storedUser = JSON.parse(localStorage.getItem("userDetails"));
-    if (storedUser) {
-      setUserDetails(storedUser);
-    }
-  }
-  }, []);
-
+  },[]);
 
   return (
     <div className="fixed bottom-4 right-4 z-50">
