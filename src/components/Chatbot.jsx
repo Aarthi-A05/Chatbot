@@ -17,7 +17,7 @@ const Chatbot = () => {
     };
     console.log("✅ Chatbot User Info:", user);
     setUserDetails(user);
-  }, []);
+  });
 
   return (
     <div className="fixed bottom-4 right-4 z-50">
