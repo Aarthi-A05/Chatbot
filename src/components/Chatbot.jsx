@@ -16,18 +16,23 @@ const Chatbot = () => {
     created_at: params.get("created_at"),
   };
 
-  // If values exist in URL, store in localStorage
+  console.log("Extracted from URL:", user); // ✅
+
   if (user.api_id && user.user_id) {
     localStorage.setItem("userDetails", JSON.stringify(user));
     setUserDetails(user);
+    console.log("Stored to localStorage and state:", user); // ✅
   } else {
-    // Fallback to previously saved details
     const storedUser = JSON.parse(localStorage.getItem("userDetails"));
     if (storedUser) {
       setUserDetails(storedUser);
+      console.log("Loaded from localStorage:", storedUser); // ✅
+    } else {
+      console.log("No user data found"); // ✅
     }
   }
 }, []);
+
 
 
   return (
